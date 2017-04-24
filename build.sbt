@@ -6,20 +6,23 @@ scalaVersion := "2.12.1"
 
 organization := "com.github.SnipyJulmy"
 
-lazy val publishSettings = Seq(
-  homepage := Some(url("https://github.com/SnipyJulmy/ScalaColor")),
-  scmInfo := Some(ScmInfo(
+homepage := Some(url("https://github.com/SnipyJulmy/ScalaColor"))
+
+scmInfo := Some(ScmInfo(
     url("https://github.com/SnipyJulmy/ScalaColor"),
-    "git@github.com:SnipyJulmy/ScalaColor.git")),
-  developers += Developer(
+    "git@github.com:SnipyJulmy/ScalaColor.git"
+    ))
+
+developers += Developer(
     "SnipyJulmy",
     "Sylvain Julmy",
     "sylvain.julmy@gmail.com",
     url("https://github.com/SnipyJulmy")
-  ),
-  licenses += ("GPLv3",url("https://www.gnu.org/licenses/gpl-3.0.en.html")),
-  pomIncludeRepository := (_ => false)
-)
+  )
+
+licenses += ("GPLv3",url("https://www.gnu.org/licenses/gpl-3.0.en.html"))
+
+pomIncludeRepository := (_ => false)
 
 publishMavenStyle := true
 
@@ -34,3 +37,13 @@ publishTo := {
 publishArtifact in Test := false
 
 coverageEnabled := true
+
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
+
+
+scalacOptions ++= Seq(
+  "-language:postfixOps",
+  "-language:implicitConversions",
+  "-deprecation"
+)

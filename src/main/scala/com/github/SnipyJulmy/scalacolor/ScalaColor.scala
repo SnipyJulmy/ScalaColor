@@ -68,7 +68,7 @@ object ScalaColor {
 
     def blink: String = BLINK + string + RESET
 
-    def reverse: String = REVERSED + string + RESET
+    def rev: String = REVERSED + string + RESET
 
     def invisible: String = INVISIBLE + string + RESET
   }
