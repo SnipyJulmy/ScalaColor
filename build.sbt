@@ -32,3 +32,5 @@ publishTo := {
 }
 
 publishArtifact in Test := false
+
+coverageEnabled := true
