@@ -19,7 +19,7 @@
  *
  */
 
-package scala_color
+package com.github.SnipyJulmy.scalacolor
 
 import scala.language.implicitConversions
 
@@ -80,4 +80,5 @@ object ScalaColor {
 
     def invisible: String = INVISIBLE + string + RESET
   }
+
 }

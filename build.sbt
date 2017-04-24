@@ -1,8 +1,25 @@
-name := "scala_color"
+name := "ScalaColor"
 
 version := "1.0"
 
 scalaVersion := "2.12.1"
+
+organization := "com.github.SnipyJulmy"
+
+lazy val publishSettings = Seq(
+  homepage := Some(url("https://github.com/SnipyJulmy/ScalaColor")),
+  scmInfo := Some(ScmInfo(
+    url("https://github.com/SnipyJulmy/ScalaColor"),
+    "git@github.com:SnipyJulmy/ScalaColor.git")),
+  developers += Developer(
+    "SnipyJulmy",
+    "Sylvain Julmy",
+    "sylvain.julmy@gmail.com",
+    url("https://github.com/SnipyJulmy")
+  ),
+  licenses += ("GPLv3",url("https://www.gnu.org/licenses/gpl-3.0.en.html")),
+  pomIncludeRepository := (_ => false)
+)
 
 publishMavenStyle := true
 
@@ -15,26 +32,3 @@ publishTo := {
 }
 
 publishArtifact in Test := false
-
-pomIncludeRepository := { _ => false }
-
-pomExtra := (
-  <url>http://jsuereth.com/scala-arm</url>
-    <licenses>
-      <license>
-        <name>BSD-style</name>
-        <url>http://www.opensource.org/licenses/bsd-license.php</url>
-        <distribution>repo</distribution>
-      </license>
-    </licenses>
-    <scm>
-      <url>git@github.com:jsuereth/scala-arm.git</url>
-      <connection>scm:git:git@github.com:jsuereth/scala-arm.git</connection>
-    </scm>
-    <developers>
-      <developer>
-        <id>jsuereth</id>
-        <name>Josh Suereth</name>
-        <url>http://jsuereth.com</url>
-      </developer>
-    </developers>)
