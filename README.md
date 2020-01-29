@@ -31,7 +31,7 @@ For the moment the library is available only for scala 2.12.1...
 ## Example
 
 ```scala
-import com.github.SnipyJulmy.scalacolor.ScalaColor._
+
 
 object Main extends App {
 
