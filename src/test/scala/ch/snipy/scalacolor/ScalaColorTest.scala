@@ -1,20 +1,24 @@
-package com.github.SnipyJulmy.scalacolor
+package ch.snipy.scalacolor
 
+import ch.snipy.scalacolor.ScalaColor._
 import org.scalacheck.Gen
 import org.scalacheck.Prop._
-import org.scalatest.FlatSpec
-import org.scalatest.prop._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.prop.Configuration
+import org.scalatestplus.scalacheck._
 
 import scala.Console._
-import ScalaColor._
 
-class ScalaColorTest extends FlatSpec with Checkers {
+class ScalaColorTest extends AnyFlatSpec with Matchers with Configuration with Checkers {
 
-  implicit override val generatorDrivenConfig: PropertyCheckConfiguration = PropertyCheckConfiguration(
-    minSuccessful = 1000
-  )
+  implicit override val generatorDrivenConfig: PropertyCheckConfiguration = {
+    PropertyCheckConfiguration(
+      minSuccessful = 1000
+    )
+  }
 
-  val colors = Seq(
+  private val colors = Seq(
     BLACK, BLACK_B,
     WHITE, WHITE_B,
     YELLOW, YELLOW_B,
@@ -26,16 +30,17 @@ class ScalaColorTest extends FlatSpec with Checkers {
     BOLD, UNDERLINED, BLINK, REVERSED, INVISIBLE
   )
 
+  private val colorizedStringGen = for {
+    c <- Gen.oneOf(colors)
+    s <- Gen.alphaStr
+  } yield (c, s)
+
   behavior of "ScalaColor"
 
   it should "colorized any string with any color correctly" in {
-    val gen = for {
-      c <- Gen.oneOf(colors)
-      s <- Gen.alphaStr
-    } yield (c, s)
 
     check {
-      forAll(gen) { case ((c, s)) =>
+      forAll(colorizedStringGen) { case (c, s) =>
         c match {
           case BLACK => BLACK + s + RESET == s.black
           case BLACK_B => BLACK_B + s + RESET == s.onBlack

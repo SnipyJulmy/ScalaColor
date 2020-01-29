@@ -16,7 +16,7 @@
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package com.github.SnipyJulmy.scalacolor
+package ch.snipy.scalacolor
 
 import scala.Console._
 import scala.language.implicitConversions
