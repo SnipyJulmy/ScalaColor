@@ -16,3 +16,14 @@ project/plugins/project/
 .scala_dependencies
 .worksheet
 .idea
+
+# Created by https://www.gitignore.io/api/bloop,metals
+# Edit at https://www.gitignore.io/?templates=bloop,metals
+
+### Bloop ###
+.bloop/
+
+### Metals ###
+.metals/
+
+# End of https://www.gitignore.io/api/bloop,metals
